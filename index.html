@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM Salman - Machine Learning Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --section-padding: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: var(--section-padding);
+            margin: 2rem 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.5s ease-out forwards;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Experience & Education */
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--background-color);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-tools {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        /* Publications */
+        .publication-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--background-color);
+            border-radius: 8px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                margin: 1rem 0;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1 class="name">M M Salman</h1>
+            <p class="title">Machine Learning Engineer</p>
+            <div class="contact-info">
+                <a href="tel:+8801711237151"><i class="fas fa-phone"></i> +880 1711-237151</a>
+                <a href="mailto:mmsalman.ku@gmail.com"><i class="fas fa-envelope"></i> mmsalman.ku@gmail.com</a>
+                <a href="https://www.linkedin.com/in/mm-salman/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/MMSalman26" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>From the beginning of my programming journey, I have always been passionate about machine learning. The deep interaction between mathematics and programming in machine learning truly fascinates me. I always strive to understand the theoretical perspective of any AI model so that I can apply the models to real-world applications with proper reasoning.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="timeline-item">
+                <h3>Machine Learning Intern - Visie</h3>
+                <div class="date">Dec 2023 - Sep 2024</div>
+                <p>• Worked on a real-time facial recognition project</p>
+                <p>• Worked in the data preprocessing team to build a Bangla OCR model from scratch</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="timeline-item">
+                <h3>Bachelor of Science in Electronics and Communication Engineering</h3>
+                <div class="date">Jan 2020 - Dec 2024</div>
+                <p>Khulna University, Bangladesh</p>
+                <p>CGPA: 3.57/4.00</p>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <div class="timeline-item">
+                <h3>Enhancing Urban Traffic Management With Real Time Computer Vision: A Smart Traffic Signal System</h3>
+                <div class="date">2024</div>
+                <p>Published in IEEE SPICSCON 2024</p>
+                <p>Authors: M M Salman, et al.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Modified Transformer Architecture</h3>
+                    <p>This thesis focuses on modifying the transformer architecture to achieve efficient and explainable classification performance for 2D and 3D images.</p>
+                    <div class="project-tools">Tools: Pytorch, Pandas, Seaborn</div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Noise Cancellation of Audio Signal</h3>
+                    <p>Used a convolutional autoencoder architecture to perform noise cancellation on audio signals.</p>
+                    <div class="project-tools">Tools: Librosa, Matplotlib, Pytorch</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Vehicle Counting in Multiple Lanes</h3>
+                    <p>Used the YOLOv8 algorithm to detect vehicles in multiple lanes simultaneously and count the number of vehicles.</p>
+                    <div class="project-tools">Tools: YOLO, OpenCV</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Road Crack Detection using Deep Learning Model</h3>
+                    <p>A team project using U-Net architecture for image segmentation in road crack detection. Responsible for model deployment on AWS EC2 instance.</p>
+                    <div class="project-tools">Tools: Tensorflow, OpenCV, Keras</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>Javascript</li>
+                        <li>Java</li>
+                        <li>C/C++</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Database Systems</h3>
+                    <ul class="skill-list">
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Science & Machine Learning</h3>
+                    <ul class="skill-list">
+                        <li>Numpy</li>
+                        <li>Pandas</li>
+                        <li>Seaborn</li>
+                        <li>Scikit Learn</li>
+                        <li>Tensorflow</li>
+                        <li>Pytorch</li>
+                        <li>OpenCV</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud Technologies</h3>
+                    <ul class="skill-list">
+                        <li>AWS EC2</li>
+                        <li>AWS Lambda</li>
+                        <li>AWS Sagemaker</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>DevOps & Version Control</h3>
+                    <ul class="skill-list">
+                        <li>Docker</li>
+                        <li>Git</li>
+                        <li>Github</li>
+                        <li>MLflow</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Specialized Areas</h3>
+                    <ul class="skill-list">
+                        <li>Computer Vision</li>
+                        <li>Natural Language Processing</li>
+                        <li>Signal Processing</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Other Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Generative AI</li>
+                        <li>LangChain</li>
+                        <li>Hugging Face Transformers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <h2>Honors and Awards</h2>
+            <div class="timeline-item">
+                <h3>4th Position in SynergyX 2024 Datathon</h3>
+                <div class="date">Nov 2024</div>
+                <p>Solved a classification problem on an unbalanced dataset using XGBoost algorithm with Grid Search for hyperparameter tuning.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>8th Position in CodeSamurai 2022</h3>
+                <div class="date">Dec 2022</div>
+                <p>Implemented a solution for a project management problem by building a full-stack web application.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Microsoft Imagine Cup 2024</h3>
+                <div class="date">Feb 2024</div>
+                <p>Received 3,500 Dollars in equivalent Azure credit for advancing to the first round. Developed a vision reasoning model with natural language-based prompting.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Best Performer award in C++ Bootcamp</h3>
+                <div class="date">Nov 2024</div>
+                <p>Received recognition in a comprehensive bootcamp focused on problem solving using C++.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Best Project Award in Digital Communication</h3>
+                <div class="date">Apr 2022</div>
+                <p>Developed an encryption device using the algorithm of Fourier Transform.</p>
+            </div>
+        </section>
+        
+        <section id="volunteer">
+            <h2>Volunteer Experience</h2>
+            <div class="timeline-item">
+                <h3>General Secretary - IEEE Khulna University Student Branch</h3>
+                <div class="date">June 2024 - Dec 2024</div>
+                <p>Led a team to organize events like TechFusion 2024 and SympSIST 2024 competitions.</p>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="timeline-item">
+                <h3>Coursera Machine Learning Specialization</h3>
+                <div class="date">Sep 2023</div>
+            </div>
+            <div class="timeline-item">
+                <h3>Coursera Deep Learning Specialization</h3>
+                <div class="date">Oct 2023</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
